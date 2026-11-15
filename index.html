@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nikhil Kumar Mishra · Kaggle Grandmaster</title>
-<meta name="description" content="Nikhil Kumar Mishra: Senior Data Scientist and Kaggle Competitions Grandmaster. 7 Kaggle gold medals, 22 top-3 finishes across Kaggle, Zindi, DrivenData and quant competitions, with leaderboards and solution code.">
+<meta name="description" content="Nikhil Kumar Mishra: Senior Data Scientist and Kaggle Competitions Grandmaster. 7 Kaggle gold medals, 32 top-3 finishes across Kaggle, Zindi, Analytics Vidhya, MachineHack, DrivenData and quant competitions, with leaderboards and solution code.">
 <meta property="og:title" content="Nikhil Kumar Mishra · Kaggle Competitions Grandmaster">
-<meta property="og:description" content="7 Kaggle gold medals · peak world rank #63 · 22 top-3 finishes across 5 platforms.">
+<meta property="og:description" content="7 Kaggle gold medals · peak world rank #63 · 32 top-3 finishes across 7 platforms.">
 <meta property="og:image" content="assets/avatar.jpg">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏆</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,8 +37,8 @@
 <section class="stats" aria-label="Highlights">
   <div><b>7</b><span>Kaggle gold medals<br>Competitions Grandmaster</span></div>
   <div><b>#63</b><span>Peak Kaggle world rank<br>of 200,000+</span></div>
-  <div><b>22</b><span>Top-3 finishes<br>across 5 platforms</span></div>
-  <div><b>8</b><span>First places</span></div>
+  <div><b>32</b><span>Top-3 finishes<br>across 7 platforms</span></div>
+  <div><b>12</b><span>First places</span></div>
 </section>
 
 <section>
@@ -67,7 +67,7 @@
 </section>
 
 <footer>
-  <p>Ranks are final private-leaderboard positions, verifiable on each platform. Team results name the team. Zindi results are also on my <a href="https://zindi.world/users/devnikhilmishra/competitions/portfolio">Zindi certificate page</a>.</p>
+  <p>Ranks are final private-leaderboard positions, verifiable on each platform. Team results name the team. Zindi results are also on my <a href="https://zindi.world/users/devnikhilmishra/competitions/portfolio">Zindi certificate page</a>. MachineHack has retired its old competition pages, so those results link to Analytics India Magazine's winner write-ups and to MachineHack's own <a href="https://github.com/analyticsindiamagazine/MachineHack/tree/master/Hackathon_Solutions">solutions repo</a>.</p>
   <p class="muted">B.E. Computer Science, PESIT Bangalore · Bengaluru, India</p>
 </footer>
 </div>
@@ -80,16 +80,21 @@ const ZI = 'https://zindi.world/competitions/';
 const kaggle = s => ({ url: KG + s, lb: KG + s + '/leaderboard' });
 const zindi = s => ({ url: ZI + s, lb: ZI + s + '/leaderboard', shot: s, sol: s });
 const W = s => KG + s; // write-up helper
+const AV = 'https://www.analyticsvidhya.com/datahack/';
+const av = s => ({ url: AV + 'contest/' + s + '/', lb: AV + 'leaderboard/' + s + '/', shot: 'av-' + s });
+const MHR = 'https://github.com/analyticsindiamagazine/MachineHack/tree/master/Hackathon_Solutions/';
+// MachineHack retired its old competition pages: link the AIM winners write-up and MachineHack's solutions repo instead
+const mh = (s, article) => ({ url: article, lb: article, lbLabel: 'Winners write-up', shot: 'machinehack-' + s, sol: 'machinehack-' + s });
 
 // Domains, in display order
 const D = {
   quant:  ['Quant finance & credit risk', 'Return forecasting, regime breaks and repayment risk, all scored on data that arrived after submission.'],
   ts:     ['Time series & sensor signals', 'Accelerometers, ventilators, air-quality sensors and weather.'],
-  nlp:    ['NLP & LLMs', 'Citation mining, essay scoring, sentiment and code understanding.'],
+  nlp:    ['NLP & LLMs', 'Citation mining, essay scoring, sentiment, topic tagging and code understanding.'],
   rec:    ['Recommender systems', 'Session-based and cold-start recommendation at e-commerce scale.'],
   earth:  ['Earth observation, climate & space', 'Satellite imagery, climate-model emulation and NASA planetary science.'],
   cv:     ['Computer vision', 'Image classification from noisy, real-world photos.'],
-  tab:    ['Tabular & user behaviour', 'Churn, income, lapse and engagement prediction.'],
+  tab:    ['Tabular & user behaviour', 'Churn, income, lapse, engagement and patient-behaviour prediction.'],
 };
 
 // place, field, title, platform, year, domain, summary, links{url, lb, shot, sol, ext, extLabel}, gold, team
@@ -99,16 +104,21 @@ const R = [
   [4, 1802, 'ADIA Lab Structural Break Challenge: Real-Time Edition', 'CrunchDAO', '2026', 'quant', 'Detect structural breaks in financial time series in real time, scored by TS-AUC. Team ultimated-team, with my model scoring 67.37%.', { url: 'https://hub.crunchdao.com/competitions/structural-break-real-time', lb: 'https://hub.crunchdao.com/competitions/structural-break-real-time/leaderboard', shot: 'crunchdao-structural-break-real-time' }],
   [3, 275, 'SFC PAYGo Solar Credit Repayment Competition', 'Zindi', '2021', 'quant', 'Forecast six months of pay-as-you-go solar loan repayments across Africa.', { ...zindi('sfc-paygo-solar-credit-repayment-competition'), sol: null }],
   [1, 67, 'SFC PAYGo Solar Credit Repayment Hackathon', 'Zindi', '2021', 'quant', 'Same problem in a 72-hour sprint. LightGBM/CatBoost blended with an LSTM-CNN.', zindi('sfc-paygo-solar-credit-repayment-hackathon')],
+  [2, 351, 'LTFS Data Science FinHack 3: Upsell Prediction', 'Analytics Vidhya', '2021', 'quant', 'Predict when in a loan\'s tenure each L&T Financial Services customer will take a top-up loan, from demographic and bureau data. Team Winners to Bat !!!.', av('ltfs-data-science-finhack-3')],
   // Time series
   [4, 1877, 'Child Mind Institute: Detect Sleep States', 'Kaggle', '2023', 'ts', 'Detect sleep onset and wake-up from wrist-worn accelerometer data. Modified U-Net + Transformer with custom weighted box fusion.', { ...kaggle('child-mind-institute-detect-sleep-states'), ext: W('child-mind-institute-detect-sleep-states/writeups/penguin46-nikhilmishra-4th-place-solution-nikhil-s'), extLabel: 'Write-up' }, true],
   [5, 2605, 'Google Brain: Ventilator Pressure Prediction', 'Kaggle', '2021', 'ts', 'Simulate airway pressure in a mechanical ventilator. LSTM and 1D-CNN ensemble with physics-informed features.', { ...kaggle('ventilator-pressure-prediction'), ext: W('ventilator-pressure-prediction/writeups/cr7-is-the-goat-5th-place-solution-a-thousand-epoc'), extLabel: 'Write-up' }, true],
   [2, 327, 'AirQo Ugandan Air Quality Forecast', 'Zindi', '2020', 'ts', 'Forecast PM2.5 across Kampala from sensor time series. Team 3 STRoNG !!!. The result led to a contract with AirQo.', zindi('airqo-ugandan-air-quality-forecast-challenge')],
   [3, 74, 'Kaggle Days: Nowcasting', 'Kaggle Days', '2021', 'ts', 'Short-term weather nowcasting. Team GegenPressing.', { ...kaggle('nowcastingweather'), shot: 'kaggle-nowcastingweather' }],
+  [1, 844, 'redBus Data Decode Hackathon 2025: Demand Forecasting', 'Analytics Vidhya', '2025', 'ts', 'Forecast bus travellers per route 15 days before the journey date, when fewer than 20% of seats are booked that early. ₹5,00,000 prize pool, solo.', av('redbus-data-decode-hackathon-2025')],
   // NLP
   [2, 1282, 'Make Data Count: Finding Data References', 'Kaggle', '2025', 'nlp', 'Find dataset citations in scientific papers and classify how each one is used, with an LLM-based pipeline.', { ...kaggle('make-data-count-finding-data-references'), shot: 'kaggle-make-data-count-finding-data-references', ext: W('make-data-count-finding-data-references/writeups/2nd-place-solution'), extLabel: 'Write-up' }, true],
   [13, 2706, 'Learning Agency Lab: Automated Essay Scoring 2.0', 'Kaggle', '2024', 'nlp', 'Grade student essays with fine-tuned transformers.', kaggle('learning-agency-lab-automated-essay-scoring-2'), true],
   [1, 126, 'To Vaccinate or Not to Vaccinate', 'Zindi', '2020', 'nlp', 'Score social-media sentiment towards vaccines. 72-hour hackathon.', zindi('to-vaccinate-or-not-to-vaccinate-its-not-a-question')],
   [3, 70, "Kaggle Days: Where There's Code, There's Bug", 'Kaggle Days', '2022', 'nlp', 'Code-understanding challenge ("Decode the code!"). Team GegenPressing.', { ...kaggle('wherethereiscodethereisbug'), shot: 'kaggle-wherethereiscodethereisbug' }],
+  [1, 261, 'JanataHack: NLP Hackathon', 'Analytics Vidhya', '2020', 'nlp', 'Predict whether a Steam reviewer recommends a game from the review text. Team CoolCoolCoolCoolCool.', av('janatahack-nlp-hackathon')],
+  [3, null, 'JanataHack Independence Day: Topic Modeling for Research Articles', 'Analytics Vidhya', '2020', 'nlp', 'Tag research papers with one or more of six subjects from their titles and abstracts. Team MS Dhoni finishes off in style.', av('janatahack-independence-day-2020-ml-hackathon')],
+  [3, 117, 'Used Electronics Price Prediction', 'MachineHack', '2020', 'nlp', 'Predict resale prices of used phones and electronics from free-text listings. Weekend Hackathon #7.', mh('used-electronics-price-prediction', 'https://analyticsindiamag.com/deep-tech/meet-the-machinehack-champions-who-cracked-the-used-electronics-price-prediction-hackathon/')],
   // Recommenders
   [5, 2574, 'OTTO: Multi-Objective Recommender System', 'Kaggle', '2023', 'rec', 'Predict clicks, carts and orders for 1M+ users over 10M+ products. Co-visitation and embedding candidates with GBDT re-ranking.', { ...kaggle('otto-recommender-system'), ext: W('otto-recommender-system/writeups/nikhilmishra-6th-place-solution'), extLabel: 'Write-up' }, true],
   [1, 612, 'Zimnat Insurance Recommendation Challenge', 'Zindi', '2020', 'rec', 'Predict which insurance products existing clients will buy next. Team Super Kind Recommenders.', zindi('zimnat-insurance-recommendation-challenge')],
@@ -130,10 +140,15 @@ const R = [
   [1, 128, 'UmojaHack India: Income Prediction', 'Zindi', '2022', 'tab', 'Predict whether an individual earns above an income threshold. $5,000 prize pool.', zindi('umojahack-india-2022')],
   [3, 105, 'Zimnat Insurance Assurance Challenge', 'Zindi', '2020', 'tab', 'Predict when an insurance policy will lapse. Team Farzi Data Scientists. 72-hour hackathon.', zindi('the-zimnat-insurance-assurance-challenge')],
   [3, 82, 'Kaggle Days: Nature Never Goes Out of Style', 'Kaggle Days', '2021', 'tab', 'Predict the popularity of nature photos from shooting conditions. Team GegenPressing.', { ...kaggle('nature-never-goes-out-of-style'), shot: 'kaggle-nature-never-goes-out-of-style' }],
+  [1, 66, 'ZS Patient Drug-Switch Prediction', 'MachineHack', '2020', 'tab', 'Find rheumatoid-arthritis patients likely to switch drugs from event-level histories. Judged on AUC, then compute cost, then a final at MLDS 2020.', mh('zs-patient-drug-switch', 'https://analyticsindiamag.com/deep-tech/patient-drug-switch-prediction-winners/')],
+  [1, 190, 'Chartbusters Prediction: Foretell the Popularity of Songs', 'MachineHack', '2020', 'tab', 'Predict how popular a song will be from its metadata.', mh('chartbusters-prediction', 'https://analyticsindiamag.com/deep-tech/chartbusters-prediction-winners')],
+  [3, 214, 'JanataHack: Healthcare Analytics', 'Analytics Vidhya', '2020', 'tab', 'Predict which people who register for MedCamp health camps will actually attend. Team Sun Knocking Ray.', av('janatahack-healthcare-analytics')],
+  [3, 221, 'Insurance Churn Prediction', 'MachineHack', '2020', 'tab', 'Predict which insurance customers will leave, from anonymised features. Weekend Hackathon #2.', mh('insurance-churn-prediction', 'https://analyticsindiamag.com/deep-tech/insurance-churn-prediction-challenge-winners')],
+  [3, 250, 'Flower Class Recognition', 'MachineHack', '2020', 'tab', 'Classify flowers into eight classes from high-cardinality tabular features. Weekend Hackathon #17.', mh('flower-class-recognition', 'https://analyticsindiamag.com/meet-the-data-scientists-who-cracked-the-flower-class-recognition-weekend-hackathon-17/')],
 ];
 
 // Solution folders present in this repo
-const HAVE = new Set(["airqo-ugandan-air-quality-forecast-challenge", "akeed-restaurant-recommendation-challenge", "akeed-restaurant-recommendation-hackathon", "cgiar-crop-yield-prediction-challenge", "kenyan-sign-language-classification-challenge", "sansa-informal-settlements-in-south-africa", "sfc-paygo-solar-credit-repayment-hackathon", "the-zimnat-insurance-assurance-challenge", "to-vaccinate-or-not-to-vaccinate-its-not-a-question", "umojahack-india-2022", "urban-air-pollution-challenge", "zimnat-insurance-recommendation-challenge", "zindi-user-behaviour-birthday-challenge"]);
+const HAVE = new Set(["airqo-ugandan-air-quality-forecast-challenge", "akeed-restaurant-recommendation-challenge", "akeed-restaurant-recommendation-hackathon", "cgiar-crop-yield-prediction-challenge", "kenyan-sign-language-classification-challenge", "sansa-informal-settlements-in-south-africa", "sfc-paygo-solar-credit-repayment-hackathon", "the-zimnat-insurance-assurance-challenge", "to-vaccinate-or-not-to-vaccinate-its-not-a-question", "umojahack-india-2022", "urban-air-pollution-challenge", "zimnat-insurance-recommendation-challenge", "zindi-user-behaviour-birthday-challenge", "machinehack-zs-patient-drug-switch", "machinehack-chartbusters-prediction", "machinehack-insurance-churn-prediction", "machinehack-used-electronics-price-prediction", "machinehack-flower-class-recognition"]);
 
 const medal = p => ['', '🥇', '🥈', '🥉'][p] || '';
 const ord = p => p + (['th', 'st', 'nd', 'rd'][(p % 100 > 10 && p % 100 < 14) ? 0 : p % 10] || 'th');
@@ -144,17 +159,17 @@ function row([p, n, t, plat, yr, d, sum, L, gold]) {
   const badge = p <= 3 ? `<span>${medal(p)}</span>` : gold ? `<span class="gm" title="Kaggle gold medal">●</span>` : `<span class="gm muted">◆</span>`;
   const cls = p <= 3 ? 'r' + p : gold ? 'rg' : 'rn';
   const acts = [
-    `<a href="${L.lb}">Leaderboard ↗</a>`,
+    `<a href="${L.lb}">${L.lbLabel || 'Leaderboard'} ↗</a>`,
     L.shot ? `<button data-img="assets/leaderboards/${L.shot}.jpg" data-t="${esc(t)}">Snapshot</button>` : '',
     L.ext ? `<a href="${L.ext}">${L.extLabel} ↗</a>` : '',
     L.sol && HAVE.has(L.sol) ? `<a href="https://github.com/nikhilmishradevelop/nikhilmishradevelop.github.io/tree/master/solutions/${L.sol}">Solution code ↗</a>` : '',
   ].join('');
   return `<li>
-    <div class="rank ${cls}">${badge}<b>${ord(p)}</b><small>of ${n.toLocaleString()}</small></div>
+    <div class="rank ${cls}">${badge}<b>${ord(p)}</b>${n ? `<small>of ${n.toLocaleString()}</small>` : ''}</div>
     <div class="body">
       <h3><a href="${L.url}">${esc(t)}</a></h3>
       <p>${esc(sum)}</p>
-      <div class="meta"><span class="plat p-${plat.toLowerCase().replace(/\s/g, '')}">${plat}</span><span>${yr}</span><span>${pct(p, n)}</span>${gold ? '<span class="goldtag">Gold medal</span>' : ''}</div>
+      <div class="meta"><span class="plat p-${plat.toLowerCase().replace(/\s/g, '')}">${plat}</span><span>${yr}</span>${n ? `<span>${pct(p, n)}</span>` : ''}${gold ? '<span class="goldtag">Gold medal</span>' : ''}</div>
       <div class="acts">${acts}</div>
     </div>
   </li>`;
@@ -165,7 +180,7 @@ document.getElementById('golds').innerHTML = R.filter(r => r[8]).sort((a, b) => 
   `<li><span class="g">${ord(p)}<small> / ${n.toLocaleString()}</small></span><div><a href="${L.url}">${esc(t)}</a><p>${yr} · ${pct(p, n)}${L.ext ? ` · <a href="${L.ext}">write-up</a>` : ''}</p></div></li>`).join('');
 
 // Domain sections
-const score = r => (r[0] <= 3 ? 0 : 1) * 0 + r[0] / r[1]; // order by percentile
+const score = r => r[0] / (r[1] || r[0] * 50); // order by percentile; unknown field sizes sort by rank
 document.getElementById('domnav').innerHTML = Object.entries(D).map(([k, [name]]) => `<a href="#d-${k}">${name}</a>`).join('');
 document.getElementById('results').innerHTML = Object.entries(D).map(([k, [name, blurb]]) => {
   const rows = R.filter(r => r[5] === k).sort((a, b) => score(a) - score(b));
