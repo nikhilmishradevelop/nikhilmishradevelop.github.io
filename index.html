@@ -52,7 +52,7 @@
   <div class="sec-head">
     <h2>Results by domain</h2>
   </div>
-  <p class="note">The 32 finishes below have a leaderboard I could link or save. A few more, on platforms like HackerEarth and HumynAI, are not listed because their leaderboards are no longer online.</p>
+  <p class="note">The 33 finishes below are the ones I could verify from a leaderboard or the organiser's results email. A few more, such as on HackerEarth, are not listed because their pages are no longer online.</p>
   <nav class="domains" id="domnav" aria-label="Jump to domain"></nav>
   <div id="results"></div>
 </section>
@@ -130,6 +130,7 @@ const R = [
   [3, 706, 'NASA Mars Spectrometry: Detect Evidence for Past Habitability', 'DrivenData', '2022', 'earth', 'Identify the chemical composition of Martian rock and soil samples from mass spectrometry. $30,000 prize pool.', { url: 'https://www.drivendata.org/competitions/93/nasa-mars-spectrometry/', lb: 'https://www.drivendata.org/competitions/93/nasa-mars-spectrometry/leaderboard/', shot: 'drivendata-nasa-mars-spectrometry', ext: 'https://github.com/drivendataorg/mars-spectrometry/tree/main/3rd%20Place', extLabel: 'Solution code' }],
   [9, 693, 'LEAP: Atmospheric Physics using AI (ClimSim)', 'Kaggle', '2024', 'earth', 'Emulate sub-grid atmospheric physics for a US Department of Energy climate model.', kaggle('leap-atmospheric-physics-ai-climsim'), true],
   [3, 484, 'UNICEF Arm 2030 Vision: Flood Prediction in Malawi', 'Zindi', '2020', 'earth', 'Predict flood extent caused by storms in southern Malawi. Team The_great_zoo. $10,000 prize pool.', { ...zindi('2030-vision-flood-prediction-in-malawi'), sol: null }],
+  [2, null, 'Zn Challenge', 'HumynAI', '2022', 'earth', 'Zinc (Zn) prediction challenge from the mining sector, run by Humyn.ai (formerly Unearthed). AUD $3,000 prize for 2nd. Humyn.ai has since taken its old challenge pages offline.', { url: 'https://humyn.ai/' }],
   [1, 195, 'CGIAR Crop Yield Prediction Challenge', 'Zindi', '2021', 'earth', 'Predict maize yields on East African farms from Sentinel-2 imagery. Team a__MAIZE__ing.', zindi('cgiar-crop-yield-prediction-challenge')],
   [1, 134, 'Urban Air Pollution Challenge', 'Zindi', '2020', 'earth', 'Predict city air quality worldwide from Sentinel-5P satellite data. 72-hour hackathon.', zindi('urban-air-pollution-challenge')],
   [1, 132, 'Kaggle Days Delhi: Water Quality', 'Kaggle Days', '2021', 'earth', 'Predict water quality from environmental measurements. Team GegenPressing.', { ...kaggle('water-water-everywhere-not-a-drop-to-drink'), shot: 'kaggle-water-water-everywhere-not-a-drop-to-drink' }],
@@ -161,7 +162,7 @@ function row([p, n, t, plat, yr, d, sum, L, gold]) {
   const badge = p <= 3 ? `<span>${medal(p)}</span>` : gold ? `<span class="gm" title="Kaggle gold medal">●</span>` : `<span class="gm muted">◆</span>`;
   const cls = p <= 3 ? 'r' + p : gold ? 'rg' : 'rn';
   const acts = [
-    `<a href="${L.lb}">${L.lbLabel || 'Leaderboard'} ↗</a>`,
+    L.lb ? `<a href="${L.lb}">${L.lbLabel || 'Leaderboard'} ↗</a>` : '',
     L.shot ? `<button data-img="assets/leaderboards/${L.shot}.jpg" data-t="${esc(t)}">Snapshot</button>` : '',
     L.ext ? `<a href="${L.ext}">${L.extLabel} ↗</a>` : '',
     L.sol && HAVE.has(L.sol) ? `<a href="https://github.com/nikhilmishradevelop/nikhilmishradevelop.github.io/tree/master/solutions/${L.sol}">Solution code ↗</a>` : '',

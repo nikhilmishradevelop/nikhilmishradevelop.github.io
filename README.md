@@ -7,7 +7,7 @@ Senior Data Scientist and Kaggle Competitions Grandmaster (peak global rank #63)
 ## Highlights
 
 - **Kaggle Competitions Grandmaster**, 7 gold medals, peak world rank #63
-- **Top 3 in 40+ data science competitions** across Kaggle, Kaggle Days, Zindi, Analytics Vidhya, MachineHack, HackerEarth, DrivenData and AlphaNova. The site lists the 32 with a linkable leaderboard, including 12 first places
+- **Top 3 in 40+ data science competitions** across Kaggle, Kaggle Days, Zindi, Analytics Vidhya, MachineHack, HackerEarth, DrivenData, AlphaNova and Humyn.ai. The site lists the 33 that can be verified, including 12 first places
 - Analytics Vidhya: 1st in the redBus Data Decode Hackathon 2025 (demand forecasting) and JanataHack NLP, 2nd in LTFS FinHack 3
 - MachineHack: 1st in ZS Patient Drug-Switch Prediction and Chartbusters Prediction
 - Quant: 3rd in AlphaNova walk-forward signal forecasting, 4th of 1,802 in the ADIA Lab Structural Break Challenge (CrunchDAO)
