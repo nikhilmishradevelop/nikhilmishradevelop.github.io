@@ -1,1 +1,188 @@
-<h1> Nikhil Kumar Mishra </h1>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nikhil Kumar Mishra · Kaggle Grandmaster</title>
+<meta name="description" content="Nikhil Kumar Mishra: Senior Data Scientist and Kaggle Competitions Grandmaster. 7 Kaggle gold medals, 22 top-3 finishes across Kaggle, Zindi, DrivenData and quant competitions, with leaderboards and solution code.">
+<meta property="og:title" content="Nikhil Kumar Mishra · Kaggle Competitions Grandmaster">
+<meta property="og:description" content="7 Kaggle gold medals · peak world rank #63 · 22 top-3 finishes across 5 platforms.">
+<meta property="og:image" content="assets/avatar.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏆</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <img class="avatar" src="assets/avatar.jpg" alt="Nikhil Kumar Mishra" width="96" height="96">
+  <div>
+    <h1>Nikhil Kumar Mishra</h1>
+    <p class="role">Senior Data Scientist · Kaggle Competitions Grandmaster</p>
+    <p class="pitch">I build models that hold up on data they have never seen. That's the test behind every private leaderboard below, and it's the same bar I hold production systems to in ad bidding, credit risk and LLM agents. Every result links to the live leaderboard, a saved snapshot of it, and the code or write-up behind it.</p>
+    <nav class="links">
+      <a href="https://www.kaggle.com/nikhilmishradev">Kaggle</a>
+      <a href="https://zindi.world/users/devnikhilmishra">Zindi</a>
+      <a href="https://www.drivendata.org/users/devnikhilmishra/">DrivenData</a>
+      <a href="https://github.com/nikhilmishradevelop">GitHub</a>
+      <a href="https://www.linkedin.com/in/nikhil-kumar-mishra-438402160/">LinkedIn</a>
+      <a href="mailto:devnikhilmishra@gmail.com">Email</a>
+    </nav>
+  </div>
+</header>
+
+<section class="stats" aria-label="Highlights">
+  <div><b>7</b><span>Kaggle gold medals<br>Competitions Grandmaster</span></div>
+  <div><b>#63</b><span>Peak Kaggle world rank<br>of 200,000+</span></div>
+  <div><b>22</b><span>Top-3 finishes<br>across 5 platforms</span></div>
+  <div><b>8</b><span>First places</span></div>
+</section>
+
+<section>
+  <h2>Kaggle gold medals</h2>
+  <p class="note">Gold goes to roughly the top 10 teams in a field of thousands. These are the results I'd point an interviewer to first.</p>
+  <ol class="golds" id="golds"></ol>
+</section>
+
+<section>
+  <div class="sec-head">
+    <h2>Results by domain</h2>
+  </div>
+  <nav class="domains" id="domnav" aria-label="Jump to domain"></nav>
+  <div id="results"></div>
+</section>
+
+<section>
+  <h2>Where I've applied it</h2>
+  <ul class="xp">
+    <li><span class="when">2025–now</span><div><b>Pattern</b> · Sr. Data Scientist, Ads<p>ML bidding across 13 Amazon marketplaces and 250+ brands. Product targeting lifted spend 20%. Pipeline runtime cut from 3h to 25 min.</p></div></li>
+    <li><span class="when">2025</span><div><b>NeuralHQ</b> · Sr. AI Scientist, Agentic AI<p>Hierarchical agent framework at 95% SOP adherence across 1,000+ documents, under 4s latency.</p></div></li>
+    <li><span class="when">2024–25</span><div><b>H2O.ai</b> · Sr. Data Scientist<p>Fraud and early-default models for large banks, cutting credit-loss exposure by ~18%. Built LLM report generation.</p></div></li>
+    <li><span class="when">2021–24</span><div><b>OkCredit</b> · Sr. Data Scientist, Lending<p>Loan pre-approval for 2.6M merchants with NPA under 3%. OkScore trust score built on signals from 50M+ users.</p></div></li>
+    <li><span class="when">2020–21</span><div><b>KarmaLife</b> · Data Scientist, Lending<p>Salary-advance risk model for gig workers that cut defaults by 20%.</p></div></li>
+  </ul>
+</section>
+
+<footer>
+  <p>Ranks are final private-leaderboard positions, verifiable on each platform. Team results name the team. Zindi results are also on my <a href="https://zindi.world/users/devnikhilmishra/competitions/portfolio">Zindi certificate page</a>.</p>
+  <p class="muted">B.E. Computer Science, PESIT Bangalore · Bengaluru, India</p>
+</footer>
+</div>
+
+<dialog id="shot"><img alt=""><form method="dialog"><button aria-label="Close">×</button></form></dialog>
+
+<script>
+const KG = 'https://www.kaggle.com/competitions/';
+const ZI = 'https://zindi.world/competitions/';
+const kaggle = s => ({ url: KG + s, lb: KG + s + '/leaderboard' });
+const zindi = s => ({ url: ZI + s, lb: ZI + s + '/leaderboard', shot: s, sol: s });
+const W = s => KG + s; // write-up helper
+
+// Domains, in display order
+const D = {
+  quant:  ['Quant finance & credit risk', 'Return forecasting, regime breaks and repayment risk, all scored on data that arrived after submission.'],
+  ts:     ['Time series & sensor signals', 'Accelerometers, ventilators, air-quality sensors and weather.'],
+  nlp:    ['NLP & LLMs', 'Citation mining, essay scoring, sentiment and code understanding.'],
+  rec:    ['Recommender systems', 'Session-based and cold-start recommendation at e-commerce scale.'],
+  earth:  ['Earth observation, climate & space', 'Satellite imagery, climate-model emulation and NASA planetary science.'],
+  cv:     ['Computer vision', 'Image classification from noisy, real-world photos.'],
+  tab:    ['Tabular & user behaviour', 'Churn, income, lapse and engagement prediction.'],
+};
+
+// place, field, title, platform, year, domain, summary, links{url, lb, shot, sol, ext, extLabel}, gold, team
+const R = [
+  // Quant
+  [3, 1563, 'AlphaNova: Walk-Forward Cross-Sectional Signal Forecasting', 'AlphaNova', '2026', 'quant', 'Build a de-meaned cross-sectional return signal for obfuscated assets, ranked by Sharpe over hidden history plus 3 months of live markets. Field counts submitted signals.', { url: 'https://www.alphanova.tech/competition/competition-5', lb: 'https://www.alphanova.tech/competition/competition-5?tab=leaderboard', shot: 'alphanova-competition-5' }],
+  [4, 1802, 'ADIA Lab Structural Break Challenge: Real-Time Edition', 'CrunchDAO', '2026', 'quant', 'Detect structural breaks in financial time series in real time, scored by TS-AUC. Team ultimated-team, with my model scoring 67.37%.', { url: 'https://hub.crunchdao.com/competitions/structural-break-real-time', lb: 'https://hub.crunchdao.com/competitions/structural-break-real-time/leaderboard', shot: 'crunchdao-structural-break-real-time' }],
+  [3, 275, 'SFC PAYGo Solar Credit Repayment Competition', 'Zindi', '2021', 'quant', 'Forecast six months of pay-as-you-go solar loan repayments across Africa.', { ...zindi('sfc-paygo-solar-credit-repayment-competition'), sol: null }],
+  [1, 67, 'SFC PAYGo Solar Credit Repayment Hackathon', 'Zindi', '2021', 'quant', 'Same problem in a 72-hour sprint. LightGBM/CatBoost blended with an LSTM-CNN.', zindi('sfc-paygo-solar-credit-repayment-hackathon')],
+  // Time series
+  [4, 1877, 'Child Mind Institute: Detect Sleep States', 'Kaggle', '2023', 'ts', 'Detect sleep onset and wake-up from wrist-worn accelerometer data. Modified U-Net + Transformer with custom weighted box fusion.', { ...kaggle('child-mind-institute-detect-sleep-states'), ext: W('child-mind-institute-detect-sleep-states/writeups/penguin46-nikhilmishra-4th-place-solution-nikhil-s'), extLabel: 'Write-up' }, true],
+  [5, 2605, 'Google Brain: Ventilator Pressure Prediction', 'Kaggle', '2021', 'ts', 'Simulate airway pressure in a mechanical ventilator. LSTM and 1D-CNN ensemble with physics-informed features.', { ...kaggle('ventilator-pressure-prediction'), ext: W('ventilator-pressure-prediction/writeups/cr7-is-the-goat-5th-place-solution-a-thousand-epoc'), extLabel: 'Write-up' }, true],
+  [2, 327, 'AirQo Ugandan Air Quality Forecast', 'Zindi', '2020', 'ts', 'Forecast PM2.5 across Kampala from sensor time series. Team 3 STRoNG !!!. The result led to a contract with AirQo.', zindi('airqo-ugandan-air-quality-forecast-challenge')],
+  [3, 74, 'Kaggle Days: Nowcasting', 'Kaggle Days', '2021', 'ts', 'Short-term weather nowcasting. Team GegenPressing.', { ...kaggle('nowcastingweather'), shot: 'kaggle-nowcastingweather' }],
+  // NLP
+  [2, 1282, 'Make Data Count: Finding Data References', 'Kaggle', '2025', 'nlp', 'Find dataset citations in scientific papers and classify how each one is used, with an LLM-based pipeline.', { ...kaggle('make-data-count-finding-data-references'), shot: 'kaggle-make-data-count-finding-data-references', ext: W('make-data-count-finding-data-references/writeups/2nd-place-solution'), extLabel: 'Write-up' }, true],
+  [13, 2706, 'Learning Agency Lab: Automated Essay Scoring 2.0', 'Kaggle', '2024', 'nlp', 'Grade student essays with fine-tuned transformers.', kaggle('learning-agency-lab-automated-essay-scoring-2'), true],
+  [1, 126, 'To Vaccinate or Not to Vaccinate', 'Zindi', '2020', 'nlp', 'Score social-media sentiment towards vaccines. 72-hour hackathon.', zindi('to-vaccinate-or-not-to-vaccinate-its-not-a-question')],
+  [3, 70, "Kaggle Days: Where There's Code, There's Bug", 'Kaggle Days', '2022', 'nlp', 'Code-understanding challenge ("Decode the code!"). Team GegenPressing.', { ...kaggle('wherethereiscodethereisbug'), shot: 'kaggle-wherethereiscodethereisbug' }],
+  // Recommenders
+  [5, 2574, 'OTTO: Multi-Objective Recommender System', 'Kaggle', '2023', 'rec', 'Predict clicks, carts and orders for 1M+ users over 10M+ products. Co-visitation and embedding candidates with GBDT re-ranking.', { ...kaggle('otto-recommender-system'), ext: W('otto-recommender-system/writeups/nikhilmishra-6th-place-solution'), extLabel: 'Write-up' }, true],
+  [1, 612, 'Zimnat Insurance Recommendation Challenge', 'Zindi', '2020', 'rec', 'Predict which insurance products existing clients will buy next. Team Super Kind Recommenders.', zindi('zimnat-insurance-recommendation-challenge')],
+  [3, 242, 'Akeed Restaurant Recommendation Challenge', 'Zindi', '2020', 'rec', 'Predict which restaurants customers in Oman will order from. Team We Don\'t Recommend This.', zindi('akeed-restaurant-recommendation-challenge')],
+  [1, 57, 'Akeed Restaurant Recommendation Hackathon', 'Zindi', '2020', 'rec', 'The same problem as a 72-hour hackathon, solo.', zindi('akeed-restaurant-recommendation-hackathon')],
+  // Earth & space
+  [3, 706, 'NASA Mars Spectrometry: Detect Evidence for Past Habitability', 'DrivenData', '2022', 'earth', 'Identify the chemical composition of Martian rock and soil samples from mass spectrometry. $30,000 prize pool.', { url: 'https://www.drivendata.org/competitions/93/nasa-mars-spectrometry/', lb: 'https://www.drivendata.org/competitions/93/nasa-mars-spectrometry/leaderboard/', shot: 'drivendata-nasa-mars-spectrometry', ext: 'https://github.com/drivendataorg/mars-spectrometry/tree/main/3rd%20Place', extLabel: 'Solution code' }],
+  [9, 693, 'LEAP: Atmospheric Physics using AI (ClimSim)', 'Kaggle', '2024', 'earth', 'Emulate sub-grid atmospheric physics for a US Department of Energy climate model.', kaggle('leap-atmospheric-physics-ai-climsim'), true],
+  [3, 484, 'UNICEF Arm 2030 Vision: Flood Prediction in Malawi', 'Zindi', '2020', 'earth', 'Predict flood extent caused by storms in southern Malawi. Team The_great_zoo. $10,000 prize pool.', { ...zindi('2030-vision-flood-prediction-in-malawi'), sol: null }],
+  [1, 195, 'CGIAR Crop Yield Prediction Challenge', 'Zindi', '2021', 'earth', 'Predict maize yields on East African farms from Sentinel-2 imagery. Team a__MAIZE__ing.', zindi('cgiar-crop-yield-prediction-challenge')],
+  [1, 134, 'Urban Air Pollution Challenge', 'Zindi', '2020', 'earth', 'Predict city air quality worldwide from Sentinel-5P satellite data. 72-hour hackathon.', zindi('urban-air-pollution-challenge')],
+  [1, 132, 'Kaggle Days Delhi: Water Quality', 'Kaggle Days', '2021', 'earth', 'Predict water quality from environmental measurements. Team GegenPressing.', { ...kaggle('water-water-everywhere-not-a-drop-to-drink'), shot: 'kaggle-water-water-everywhere-not-a-drop-to-drink' }],
+  // CV
+  [2, 177, 'Kenyan Sign Language Classification', 'Zindi', '2022', 'cv', 'Classify Kenyan Sign Language words from photos.', zindi('kenyan-sign-language-classification-challenge')],
+  [2, 77, 'SANSA Informal Settlements in South Africa', 'Zindi', '2020', 'cv', 'Map informal settlements from high-resolution satellite imagery. 72-hour hackathon.', zindi('sansa-informal-settlements-in-south-africa')],
+  // Tabular
+  [11, 2051, 'Predict Student Performance from Game Play', 'Kaggle', '2023', 'tab', 'Trace student learning from event logs of an educational game.', kaggle('predict-student-performance-from-game-play'), true],
+  [2, 174, 'Zindi User Behaviour Birthday Challenge', 'Zindi', '2022', 'tab', 'Predict which users will be active on Zindi next month. Team Birthday Bash.', zindi('zindi-user-behaviour-birthday-challenge')],
+  [1, 128, 'UmojaHack India: Income Prediction', 'Zindi', '2022', 'tab', 'Predict whether an individual earns above an income threshold. $5,000 prize pool.', zindi('umojahack-india-2022')],
+  [3, 105, 'Zimnat Insurance Assurance Challenge', 'Zindi', '2020', 'tab', 'Predict when an insurance policy will lapse. Team Farzi Data Scientists. 72-hour hackathon.', zindi('the-zimnat-insurance-assurance-challenge')],
+  [3, 82, 'Kaggle Days: Nature Never Goes Out of Style', 'Kaggle Days', '2021', 'tab', 'Predict the popularity of nature photos from shooting conditions. Team GegenPressing.', { ...kaggle('nature-never-goes-out-of-style'), shot: 'kaggle-nature-never-goes-out-of-style' }],
+];
+
+// Solution folders present in this repo
+const HAVE = new Set(["airqo-ugandan-air-quality-forecast-challenge", "akeed-restaurant-recommendation-challenge", "akeed-restaurant-recommendation-hackathon", "cgiar-crop-yield-prediction-challenge", "kenyan-sign-language-classification-challenge", "sansa-informal-settlements-in-south-africa", "sfc-paygo-solar-credit-repayment-hackathon", "the-zimnat-insurance-assurance-challenge", "to-vaccinate-or-not-to-vaccinate-its-not-a-question", "umojahack-india-2022", "urban-air-pollution-challenge", "zimnat-insurance-recommendation-challenge", "zindi-user-behaviour-birthday-challenge"]);
+
+const medal = p => ['', '🥇', '🥈', '🥉'][p] || '';
+const ord = p => p + (['th', 'st', 'nd', 'rd'][(p % 100 > 10 && p % 100 < 14) ? 0 : p % 10] || 'th');
+const pct = (p, n) => { const v = p / n * 100; return 'top ' + (v < 1 ? v.toFixed(1) : Math.ceil(v)) + '%'; };
+const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+
+function row([p, n, t, plat, yr, d, sum, L, gold]) {
+  const badge = p <= 3 ? `<span>${medal(p)}</span>` : gold ? `<span class="gm" title="Kaggle gold medal">●</span>` : `<span class="gm muted">◆</span>`;
+  const cls = p <= 3 ? 'r' + p : gold ? 'rg' : 'rn';
+  const acts = [
+    `<a href="${L.lb}">Leaderboard ↗</a>`,
+    L.shot ? `<button data-img="assets/leaderboards/${L.shot}.jpg" data-t="${esc(t)}">Snapshot</button>` : '',
+    L.ext ? `<a href="${L.ext}">${L.extLabel} ↗</a>` : '',
+    L.sol && HAVE.has(L.sol) ? `<a href="solutions/${L.sol}/">Solution code →</a>` : '',
+  ].join('');
+  return `<li>
+    <div class="rank ${cls}">${badge}<b>${ord(p)}</b><small>of ${n.toLocaleString()}</small></div>
+    <div class="body">
+      <h3><a href="${L.url}">${esc(t)}</a></h3>
+      <p>${esc(sum)}</p>
+      <div class="meta"><span class="plat p-${plat.toLowerCase().replace(/\s/g, '')}">${plat}</span><span>${yr}</span><span>${pct(p, n)}</span>${gold ? '<span class="goldtag">Gold medal</span>' : ''}</div>
+      <div class="acts">${acts}</div>
+    </div>
+  </li>`;
+}
+
+// Gold medal strip
+document.getElementById('golds').innerHTML = R.filter(r => r[8]).sort((a, b) => a[0] - b[0] || b[1] - a[1]).map(([p, n, t, , yr, , , L]) =>
+  `<li><span class="g">${ord(p)}<small> / ${n.toLocaleString()}</small></span><div><a href="${L.url}">${esc(t)}</a><p>${yr} · ${pct(p, n)}${L.ext ? ` · <a href="${L.ext}">write-up</a>` : ''}</p></div></li>`).join('');
+
+// Domain sections
+const score = r => (r[0] <= 3 ? 0 : 1) * 0 + r[0] / r[1]; // order by percentile
+document.getElementById('domnav').innerHTML = Object.entries(D).map(([k, [name]]) => `<a href="#d-${k}">${name}</a>`).join('');
+document.getElementById('results').innerHTML = Object.entries(D).map(([k, [name, blurb]]) => {
+  const rows = R.filter(r => r[5] === k).sort((a, b) => score(a) - score(b));
+  const wins = rows.filter(r => r[0] === 1).length, pods = rows.filter(r => r[0] <= 3).length, golds = rows.filter(r => r[8]).length;
+  const tally = [golds && `${golds} gold`, pods && `${pods} podium`, wins && `${wins} win${wins > 1 ? 's' : ''}`].filter(Boolean).join(' · ');
+  return `<div class="domain" id="d-${k}"><div class="dh"><h3>${name}</h3><span>${tally}</span></div><p class="note">${blurb}</p><ol class="podium">${rows.map(row).join('')}</ol></div>`;
+}).join('');
+
+const dlg = document.getElementById('shot');
+document.addEventListener('click', e => {
+  const b = e.target.closest('button[data-img]');
+  if (!b) return;
+  const img = dlg.querySelector('img');
+  img.src = b.dataset.img; img.alt = 'Final leaderboard: ' + b.dataset.t;
+  dlg.showModal();
+});
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+</script>
+</body>
+</html>

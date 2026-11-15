@@ -1,0 +1,27 @@
+Framework Used: Pytorch Lightning and timm for pretrained models.
+
+Model Architecture: Pretrained model backbones along with high dropout dense layers at the top for classification
+
+Augmentations: CutoutV2 and Cutout V3 (adding more cutouts on the image (V2), and at the borders only (V3) helped avoid overfitting) along with mixup. Rest augmentations were mostly derived from other competitions. All augmentations were done with albumentations.s
+
+
+Model Types Used:
+
+1. Swin (https://github.com/microsoft/Swin-Transformer)
+2. ConvNext(https://github.com/facebookresearch/ConvNeXt)
+3. effNet_v7_ns (https://paperswithcode.com/paper/self-training-with-noisy-student-improves)
+
+
+Highlights:
+
+1. At the size of 384, swin gave the best cross-validation scores.
+2. With higher image sizes upto 600, convnext performed better. Even higher image sizes could have led to better performance, but I was constrained with GPU memory.
+3. effnet helped add a bit of variation to the blend, but performed poorer compared to swin and convnext.
+4. Final solution was a weighted geometric blend. Geometric weighted blend helps much more than arithmatic weighted blend.
+
+
+
+
+
+
+
