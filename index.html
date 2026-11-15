@@ -147,7 +147,7 @@ function row([p, n, t, plat, yr, d, sum, L, gold]) {
     `<a href="${L.lb}">Leaderboard ↗</a>`,
     L.shot ? `<button data-img="assets/leaderboards/${L.shot}.jpg" data-t="${esc(t)}">Snapshot</button>` : '',
     L.ext ? `<a href="${L.ext}">${L.extLabel} ↗</a>` : '',
-    L.sol && HAVE.has(L.sol) ? `<a href="solutions/${L.sol}/">Solution code →</a>` : '',
+    L.sol && HAVE.has(L.sol) ? `<a href="https://github.com/nikhilmishradevelop/nikhilmishradevelop.github.io/tree/master/solutions/${L.sol}">Solution code ↗</a>` : '',
   ].join('');
   return `<li>
     <div class="rank ${cls}">${badge}<b>${ord(p)}</b><small>of ${n.toLocaleString()}</small></div>
