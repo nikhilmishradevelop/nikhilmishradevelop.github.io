@@ -39,7 +39,7 @@
   <div><b>7</b><span>Kaggle gold medals<br>Competitions Grandmaster</span></div>
   <div><b>#63</b><span>Peak Kaggle world rank<br>of 200,000+</span></div>
   <div><b>40+</b><span>Top-3 finishes in<br>data science competitions</span></div>
-  <div><b>12</b><span>First places</span></div>
+  <div><b>13</b><span>First places</span></div>
 </section>
 
 <section>
@@ -52,7 +52,7 @@
   <div class="sec-head">
     <h2>Results by domain</h2>
   </div>
-  <p class="note">The 33 finishes below are the ones I could verify from a leaderboard or the organiser's results email. A few more, such as on HackerEarth, are not listed because their pages are no longer online.</p>
+  <p class="note">The 34 finishes below are the ones I could verify from a leaderboard or the organiser's results email. A few more, such as on HackerEarth, are not listed because their pages are no longer online.</p>
   <nav class="domains" id="domnav" aria-label="Jump to domain"></nav>
   <div id="results"></div>
 </section>
@@ -93,7 +93,7 @@ const D = {
   quant:  ['Quant finance & credit risk', 'Return forecasting, regime breaks and repayment risk, all scored on data that arrived after submission.'],
   ts:     ['Time series & sensor signals', 'Accelerometers, ventilators, air-quality sensors and weather.'],
   nlp:    ['NLP & LLMs', 'Citation mining, essay scoring, sentiment, topic tagging and code understanding.'],
-  rec:    ['Recommender systems', 'Session-based and cold-start recommendation at e-commerce scale.'],
+  rec:    ['Recommender systems', 'Session-based, cold-start and profile-matching recommendation.'],
   earth:  ['Earth observation, climate & space', 'Satellite imagery, climate-model emulation and NASA planetary science.'],
   cv:     ['Computer vision', 'Image classification from noisy, real-world photos.'],
   tab:    ['Tabular & user behaviour', 'Churn, income, lapse, engagement and patient-behaviour prediction.'],
@@ -131,6 +131,7 @@ const R = [
   [9, 693, 'LEAP: Atmospheric Physics using AI (ClimSim)', 'Kaggle', '2024', 'earth', 'Emulate sub-grid atmospheric physics for a US Department of Energy climate model.', kaggle('leap-atmospheric-physics-ai-climsim'), true],
   [3, 484, 'UNICEF Arm 2030 Vision: Flood Prediction in Malawi', 'Zindi', '2020', 'earth', 'Predict flood extent caused by storms in southern Malawi. Team The_great_zoo. $10,000 prize pool.', { ...zindi('2030-vision-flood-prediction-in-malawi'), sol: null }],
   [2, null, 'Zn Challenge: Predicting Missing Zinc', 'HumynAI', '2022', 'earth', 'Predict missing zinc values in mining data. Run by Humyn.ai (formerly Unearthed), which has since taken its old challenge pages offline. AUD $3,000 prize.', { url: 'https://www.linkedin.com/posts/nikhil-kumar-mishra-438402160_kaggle-unearthed-ml-share-6963089234794541057-hkQw/', lb: 'https://www.linkedin.com/posts/nikhil-kumar-mishra-438402160_kaggle-unearthed-ml-share-6963089234794541057-hkQw/', lbLabel: 'Result post' }],
+  [1, 1697, '#SwipeToSuccess: Profile Matching for yenta', 'Bitgrit', '2020', 'rec', 'Predict whether two users of Atrae’s professional networking app yenta will match, to improve its recommendation algorithm. $10,000 prize pool.', { url: 'https://bitgrit.com/competition/4', lb: 'https://bitgrit.com/competition/4', shot: 'bitgrit-swipetosuccess' }],
   [1, 195, 'CGIAR Crop Yield Prediction Challenge', 'Zindi', '2021', 'earth', 'Predict maize yields on East African farms from Sentinel-2 imagery. Team a__MAIZE__ing.', zindi('cgiar-crop-yield-prediction-challenge')],
   [1, 134, 'Urban Air Pollution Challenge', 'Zindi', '2020', 'earth', 'Predict city air quality worldwide from Sentinel-5P satellite data. 72-hour hackathon.', zindi('urban-air-pollution-challenge')],
   [1, 132, 'Kaggle Days Delhi: Water Quality', 'Kaggle Days', '2021', 'earth', 'Predict water quality from environmental measurements. Team GegenPressing.', { ...kaggle('water-water-everywhere-not-a-drop-to-drink'), shot: 'kaggle-water-water-everywhere-not-a-drop-to-drink' }],
