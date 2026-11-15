@@ -110,3 +110,5 @@ dialog button { width: 36px; height: 36px; border-radius: 50%; border: 0; backgr
 .p-analyticsvidhya { color: #b4233c; font-weight: 600; }
 .p-machinehack { color: #6d28d9; font-weight: 600; }
 @media (prefers-color-scheme: dark) { .p-analyticsvidhya { color: #f87191; } .p-machinehack { color: #b69cff; } }
+.p-humynai { color: #0f766e; font-weight: 600; }
+@media (prefers-color-scheme: dark) { .p-humynai { color: #5eead4; } }
